@@ -320,13 +320,13 @@ return {
                 local file = "Sound\\" .. sound_map[book_id]
                 if vfs.fileExists(file) then
                     core.sound.say(file, self)
-                    ui.showMessage("Reading " .. record.name)
+                    ui.showMessage("Reading\n" .. record.name)
                 end
             elseif key.symbol == "c" then
                 if core.sound.isSayActive(self) then
                     core.sound.stopSay(self)
                     local record = types.Book.record(currentBook)
-                    ui.showMessage("Stopped reading " .. record.name)
+                    ui.showMessage("Stopped reading\n" .. record.name)
                 end
             end
         end
