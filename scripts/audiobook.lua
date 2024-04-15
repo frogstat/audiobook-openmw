@@ -2,6 +2,7 @@ local ui = require('openmw.ui')
 local types = require('openmw.types')
 local self = require('openmw.self')
 local core = require('openmw.core')
+local vfs = require('openmw.vfs')
 
 -- formatted to all lowercase keys
 -- regex: \b(\w+)\b\s*=
@@ -295,32 +296,38 @@ local function sanitize_id(dirty_id)
     return result
 end
 
-local isInBook = false
 local currentBook = nil
 
 return {
     eventHandlers = {
         UiModeChanged = function(data)
             if data.newMode == "Book" then
-                isInBook = true
                 currentBook = data.arg
-            -- else
-            --     isInBook = false
-            --     currentBook = nil
             end
         end
     },
 
     engineHandlers = {
         onKeyPress = function(key)
+            if currentBook == nil then
+                return
+            end
+            
             if key.symbol == 'x' then
                 local record = types.Book.record(currentBook)
                 local name = record.id
                 local book_id = sanitize_id(name)
                 local file = "Sound\\" .. sound_map[book_id]
-                core.sound.say(file, self)
+                if vfs.fileExists(file) then
+                    core.sound.say(file, self)
+                    ui.showMessage("Reading " .. record.id)
+                end
             elseif key.symbol == "c" then
-                core.sound.stopSay(self)
+                if core.sound.isSayActive(self) then
+                    core.sound.stopSay(self)
+                    local record = types.Book.record(currentBook)
+                    ui.showMessage("Stopped reading " .. record.id)
+                end
             end
         end
     }
