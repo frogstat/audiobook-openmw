@@ -282,7 +282,26 @@ local sound_map = {
     bookskill_unarmored2 = "Vo\\Audiobook\\Charwich_Koiinge_Letters_v1.mp3",
     bookskill_unarmored3 = "Vo\\Audiobook\\VivecSermon11.mp3",
     bookskill_unarmored4 = "Vo\\Audiobook\\VivecSermon15.mp3",
-    bookskill_unarmored5 = "Vo\\Audiobook\\VivecSermon34.mp3"
+    bookskill_unarmored5 = "Vo\\Audiobook\\VivecSermon34.mp3",
+    t_bk_arkhonlimtr = "Vo\\Audiobook\\A_Biography_of_Arkhonius_Lim.mp3",
+    t_bk_commentarycovenantspc = "Vo\\Audiobook\\A_Commentary_on_the_Covenants.mp3",
+    t_bk_dubioustaletr = "Vo\\Audiobook\\A_Dubious_Tale.mp3",
+    t_bk_dunceinmorrowindtr_v1 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v1.mp3",
+    t_bk_dunceinmorrowindtr_v2 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v2.mp3",
+    t_bk_dunceinmorrowindtr_v3 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v3.mp3",
+    t_bk_dunceinmorrowindtr_v4 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v4.mp3",
+    t_bk_dunceinmorrowindtr_v5 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v5.mp3",
+    t_bk_dunceinmorrowindtr_v6 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v6.mp3",
+    t_bk_dunceinmorrowindtr_v7 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v7.mp3",
+    t_bk_dunceinmorrowindtr_v8 = "Vo\\Audiobook\\A_Dunce_in_Morrowind_v8.mp3",
+    t_bk_dunmersguidetoreachshotn = "Vo\\Audiobook\\A_Dunmers_Guide_to_The_Reach.mp3",
+    t_bk_fablevalenwoodtr = "Vo\\Audiobook\\A_Fable_from_Valenwood.mp3",
+    t_bk_handbookofthedevouttr = "Vo\\Audiobook\\A_Handbook_For_The_Devout.mp3",
+    t_bk_almalexiahistorytr = "Vo\\Audiobook\\A_History_of_Almalexia.mp3",
+    t_bk_historysaturailashotn = "Vo\\Audiobook\\A_History_of_Saturalia.mp3",
+    t_bk_justpunishmenttr = "Vo\\Audiobook\\A_Just_Punishment.mp3",
+    tr_m4_veranzaris_book_saom6 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v6.mp3",
+    tr_m4_veranzaris_book_saom12 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v12.mp3"
 }
 
 --- @param book_id string
