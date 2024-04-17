@@ -321,10 +321,10 @@ return {
         UiModeChanged = function(data)
             if data.newMode == "Book" then
                 currentBook = data.arg
-				isReading = true
-			elseif data.newMode ~= "Book" then
-				isReading = false
-			end
+                isReading = true
+            elseif data.newMode ~= "Book" then
+                isReading = false
+            end
         end
     },
 
@@ -335,19 +335,19 @@ return {
             end
 
             if key.symbol == 'x' then
-				if isReading == true then
-					local record = types.Book.record(currentBook)
-					local name = record.id or "unknown"
-					local book_id = sanitize_id(name)
-					local file = "Sound\\" .. (sound_map[book_id] or "unknown")
-					if vfs.fileExists(file) then
-						core.sound.say(file, self)
-						ui.showMessage("Reading\n" .. record.name)
-						playingBook = record.name
-					else
-						ui.showMessage("This book does not have an audiobook")
-					end
-				end
+                if isReading == true then
+                    local record = types.Book.record(currentBook)
+                    local name = record.id or "unknown"
+                    local book_id = sanitize_id(name)
+                    local file = "Sound\\" .. (sound_map[book_id] or "unknown")
+                    if vfs.fileExists(file) then
+                        core.sound.say(file, self)
+                        ui.showMessage("Reading\n" .. record.name)
+                        playingBook = record.name
+                    else
+                        ui.showMessage("This book does not have an audiobook")
+                    end
+                end
             elseif key.symbol == "c" then
                 if core.sound.isSayActive(self) then
                     core.sound.stopSay(self)
