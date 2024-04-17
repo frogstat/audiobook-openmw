@@ -304,9 +304,6 @@ local sound_map = {
     tr_m4_veranzaris_book_saom12 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v12.mp3"
 }
 
---- @param book_id string
-local function getSoundId(book_id) return book_id .. "_" end
-
 --- @param dirty_id string
 --- replace spaces with _, replace . and ' with none
 local function sanitize_id(dirty_id)
@@ -316,13 +313,18 @@ local function sanitize_id(dirty_id)
 end
 
 local currentBook = nil
+local isReading = false
+local playingBook
 
 return {
     eventHandlers = {
         UiModeChanged = function(data)
             if data.newMode == "Book" then
                 currentBook = data.arg
-            end
+				isReading = true
+			elseif data.newMode ~= "Book" then
+				isReading = false
+			end
         end
     },
 
@@ -333,19 +335,24 @@ return {
             end
 
             if key.symbol == 'x' then
-                local record = types.Book.record(currentBook)
-                local name = record.id
-                local book_id = sanitize_id(name)
-                local file = "Sound\\" .. sound_map[book_id]
-                if vfs.fileExists(file) then
-                    core.sound.say(file, self)
-                    ui.showMessage("Reading\n" .. record.name)
-                end
+				if isReading == true then
+					local record = types.Book.record(currentBook)
+					local name = record.id or "unknown"
+					local book_id = sanitize_id(name)
+					local file = "Sound\\" .. (sound_map[book_id] or "unknown")
+					if vfs.fileExists(file) then
+						core.sound.say(file, self)
+						ui.showMessage("Reading\n" .. record.name)
+						playingBook = record.name
+					else
+						ui.showMessage("This book does not have an audiobook")
+					end
+				end
             elseif key.symbol == "c" then
                 if core.sound.isSayActive(self) then
                     core.sound.stopSay(self)
                     local record = types.Book.record(currentBook)
-                    ui.showMessage("Stopped reading\n" .. record.name)
+                    ui.showMessage("Stopped reading\n" .. playingBook)
                 end
             end
         end
