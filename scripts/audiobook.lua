@@ -322,7 +322,7 @@ return {
             if data.newMode == "Book" or data.newMode == "Scroll" then
                 currentBook = data.arg
                 isReading = true
-            elseif data.newMode ~= "Book" and data.newMode ~= "Scroll" then
+            else
                 isReading = false
             end
         end
