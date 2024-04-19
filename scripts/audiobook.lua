@@ -319,10 +319,10 @@ local playingBook
 return {
     eventHandlers = {
         UiModeChanged = function(data)
-            if data.newMode == "Book" then
+            if data.newMode == "Book" or data.newMode == "Scroll" then
                 currentBook = data.arg
                 isReading = true
-            elseif data.newMode ~= "Book" then
+            elseif data.newMode ~= "Book" and data.newMode ~= "Scroll" then
                 isReading = false
             end
         end
