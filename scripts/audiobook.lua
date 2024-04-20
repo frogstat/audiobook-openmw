@@ -301,7 +301,18 @@ local sound_map = {
     t_bk_historysaturailashotn = "Vo\\Audiobook\\A_History_of_Saturalia.mp3",
     t_bk_justpunishmenttr = "Vo\\Audiobook\\A_Just_Punishment.mp3",
     tr_m4_veranzaris_book_saom6 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v6.mp3",
-    tr_m4_veranzaris_book_saom12 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v12.mp3"
+    tr_m4_veranzaris_book_saom12 = "Vo\\Audiobook\\Sixteen_Accords_of_Madness_v12.mp3",
+    t_bk_healerstaletr = "Vo\\Audiobook\\The_Healers_Tale.mp3",
+    t_bk_regrettr = "Vo\\Audiobook\\Regret.mp3",
+    t_bk_mineralsofmorrowindtr = "Vo\\Audiobook\\Minerals_Morrowind.mp3",
+    t_bk_mannimarcoshotn = "Vo\\Audiobook\\Mannimarco.mp3",
+    t_bk_liminalbridgespc = "Vo\\Audiobook\\Liminal_Bridges.mp3",
+    t_bk_kinghelsethbiographytr = "Vo\\Audiobook\\King_Helseth_Bio.mp3",
+    t_bk_historyofdaggerfalltr = "Vo\\Audiobook\\History_of_Daggerfall.mp3",
+    t_bk_herooftheindoriltr = "Vo\\Audiobook\\Hero_of_the_Indoril.mp3",
+    t_bk_herhandstr = "Vo\\Audiobook\\Her_Hands.mp3",
+    t_bk_etiquettewithrulerstr = "Vo\\Audiobook\\Etiquette_Rulers.mp3",
+    t_bk_beggarprinceshotn = "Vo\\Audiobook\\Beggar_Prince.mp3"
 }
 
 --- @param dirty_id string
@@ -322,7 +333,7 @@ return {
             if data.newMode == "Book" or data.newMode == "Scroll" then
                 currentBook = data.arg
                 isReading = true
-            elseif data.newMode ~= "Book" and data.newMode ~= "Scroll" then
+            else
                 isReading = false
             end
         end
